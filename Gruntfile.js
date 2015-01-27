@@ -6,16 +6,15 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
-      coffee: {
-        files: ['**/*.coffee'],
+      js: {
+        files: ['**/*.js'],
         tasks: ['clear', 'mochacli']
       }
     },
     mochacli: {
       options: {
-        files: ['test/**/*.coffee'],
+        files: ['test/**/*.js'],
         reporter: 'spec',
-        compilers: ['coffee:coffee-script/register'],
         require: ['should'],
         ui: 'bdd',
         quiet: false,
@@ -27,12 +26,12 @@ module.exports = function(grunt) {
       },
       unit: {
         options: {
-          files: ['test/unit/**/*.coffee']
+          files: ['test/unit/**/*.js']
         }
       },
       integration: {
         options: {
-          files: ['test/integration/**/*.coffee']
+          files: ['test/integration/**/*.js']
         }
       }
     }
@@ -45,7 +44,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['mochacli']);
   grunt.registerTask('test:unit', ['mochacli:unit']);
   grunt.registerTask('test:integration', ['mochacli:integration']);
-  grunt.registerTask('test:watcher', ['watch:coffee']);
+  grunt.registerTask('test:watcher', ['watch:js']);
   
   return grunt;
 };
