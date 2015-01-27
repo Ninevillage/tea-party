@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-istanbul cover -x "**/vendor/**" _mocha -- -R spec --recursive test
+istanbul cover -x "**/vendor/**" _mocha -- -R spec --recursive ./test
