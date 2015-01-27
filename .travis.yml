@@ -5,7 +5,7 @@ before_install:
 - npm install -g codeclimate-test-reporter
 - npm install -g istanbul
 - npm install -g bower
-script: npm run test-and-coverage
+#script: npm run test-and-coverage
 services:
 - mongodb
 env:
