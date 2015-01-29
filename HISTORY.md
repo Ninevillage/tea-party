@@ -6,6 +6,7 @@
 # 0.0.1 (progress)
 * setup express
 * setup jwt
+* setup sessions
 * add the user model
 * add default routes for registration and token (login)
 * add root route for api informations
