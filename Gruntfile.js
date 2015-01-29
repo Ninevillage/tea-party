@@ -21,7 +21,11 @@ module.exports = function(grunt) {
         growl: true,
         env: {
           NODE_ENV: 'test',
-          DEBUG: 'tea-party:tea-party:*'
+          DEBUG: 'tea-party:tea-party:*',
+          CONFIG: path.join(__dirname, 'app/config'),
+          HELPERS: path.join(__dirname, 'app/helpers'),
+          MODELS: path.join(__dirname, 'app/models'),
+          MODULES: path.join(__dirname, 'app/helpers/modules')
         }
       },
       unit: {
