@@ -15,6 +15,12 @@ module.exports = function() {
   // ==== Set Env
   application.set('env', process.env.NODE_ENV || 'development');
   
+  // ==== Set Port
+  application.set('port', process.env.PORT || 3000);
+  
+  // ==== Set IP
+  application.set('ip', process.env.IP || '127.0.0.1');
+  
   // ==== Hold the Server
   application.set('server', server);
   
@@ -43,4 +49,12 @@ module.exports = function() {
   Log('Load Application Config');
   // ==== Load Application Config
   require('./config/application')(application);
+  
+  Log('Load Express Applications');
+  // ==== Load Express Applications
+  require('./express')(application);
+  
+  Log('Listen on Port '+application.get('port'));
+  // ==== Listen on Port
+  server.listen(application.get('port'));
 };

@@ -8,6 +8,6 @@ module.exports = function(targetPath) {
       requiredFiles[name] = require("" + targetPath + "/" + file);
     }
   });
-  console.log(targetPath);
+  //console.log(targetPath);
   return requiredFiles;
 };
