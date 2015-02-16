@@ -1,29 +1,29 @@
 module.exports = function(application) {
   var modules = application.get('modules');
   var Log = application.get('logger')();
-  var Root = modules.express();
+  var Blog = modules.express();
   
-  Log('Load Root Config');
-  require('./config')(Root, application);
+  Log('Load Blog Config');
+  require('./config')(Blog, application);
   
-  // ==== Load Root Routers
+  // ==== Load Blog Routers
   var routers = [
-    'RootRouter'
+    'BlogRouter'
   ];
   for(routerIndex in routers) {
     var router = routers[routerIndex];
-    Root.use(require('./routers/'+router)(Root, application));
+    Blog.use(require('./routers/'+router)(Blog, application));
   }
   
-  // ==== Root 404 Error Handler
-  Root.use(function(req, res, next) {
+  // ==== Blog 404 Error Handler
+  Blog.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
   });
   
-  // ==== Root 500 Error Handler
-  Root.use(function(err, req, res, next) {
+  // ==== Blog 500 Error Handler
+  Blog.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -31,6 +31,6 @@ module.exports = function(application) {
     });
   });
   
-  // ==== Load Root into Application
-  application.use('/', Root);
+  // ==== Load Blog into Application
+  application.use('/blog', Blog);
 };

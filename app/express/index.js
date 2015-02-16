@@ -5,9 +5,12 @@ module.exports = function (application) {
   Log('Load Express Config');
   require('./config')(application);
   
-  Log('Load Root Application');
-  require('./root')(application);
-  
   Log('Load API Application');
   require('./api')(application);
+  
+  Log('Load Blog Application');
+  require('./blog')(application);
+  
+  Log('Load Root Application'); // ROOT MUST BE THE LAST
+  require('./root')(application);
 };
