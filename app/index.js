@@ -36,6 +36,9 @@ module.exports = function() {
   // ==== Hold Models
   application.set('models', require('./models'));
   
+  // ==== Hold Middlewares
+  application.set('middlewares', require('./middlewares'));
+  
   // ==== Load Environment Config
   application.set('environment_config', require('./config/environments')(application));
   

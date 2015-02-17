@@ -13,26 +13,16 @@ module.exports = function(application) {
     'UsersRouter',
     'PartiesRouter',
   ];
-  for(routerIndex in routers) {
+  for(var routerIndex in routers) {
     var router = routers[routerIndex];
     API.use(require('./routers/'+router)(API, application));
   }
   
   // ==== API 404 Error Handler
-  API.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
+  API.use(application.get('middlewares').notFound);
   
   // ==== API 500 Error Handler
-  API.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.json({
-      message: err.message,
-      error: (application.get('env') == 'development') ? err : {}
-    });
-  });
+  API.use(application.get('middlewares').jsonErrorResponse);
   
   // ==== Load API into Application
   application.use('/api', API);

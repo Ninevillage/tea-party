@@ -8,9 +8,15 @@ module.exports = function (application) {
   Log('Load API Application');
   require('./api')(application);
   
+  Log('Load Admin Application');
+  require('./admin')(application);
+  
   Log('Load Blog Application');
   require('./blog')(application);
   
-  Log('Load Root Application'); // ROOT MUST BE THE LAST
+  Log('Load User Application');
+  require('./user')(application);
+  
+  Log('Load Root Application'); // ROOT SHOULD BE THE LAST
   require('./root')(application);
 };

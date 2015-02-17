@@ -11,10 +11,8 @@ module.exports = function(Root, application) {
   });
   
   Router.param('slug', function(req, res, next, slug) {
-    console.log(slug);
     application.get('models').Page.loadBySlug(slug, function(err, page) {
       if(err) return next(err);
-      if(!page) return next();
       req.page = page;
       next();
     });

@@ -80,6 +80,12 @@ UserSchema.statics.loadById = function(id, cb) {
   }).exec(cb);
 };
 
+UserSchema.statics.loadByUsername = function(username, cb) {
+  return this.findOne({
+    username: username
+  }).exec(cb);
+};
+
 exports = module.exports;
 exports.Schema = UserSchema;
 exports.Name = 'User';

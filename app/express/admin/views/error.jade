@@ -1,0 +1,9 @@
+doctype html
+html
+    head
+    body
+        h1=message
+        pre=error
+        
+        - if(error.status == 403)
+            a(href='/login') Zum Login
