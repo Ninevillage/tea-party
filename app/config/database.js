@@ -1,6 +1,6 @@
 var development = "mongodb://localhost/tea_party-development";
 var test = "mongodb://localhost/tea_party-test";
-var production = "mongodb://localhost/tea_party";
+var production = process.env.MONGOSOUP_URL || "mongodb://localhost/tea_party";
 
 var options = {};
 var env = process.env.NODE_ENV || 'development';
