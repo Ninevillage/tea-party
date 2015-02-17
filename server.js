@@ -8,5 +8,5 @@
 // }
 
 // ==== Run App
-var APP = require('.');
+var APP = require('./');
 APP.run();
