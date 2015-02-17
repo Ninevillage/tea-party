@@ -44,7 +44,7 @@ module.exports = function() {
   
   Log('Init Database Connection');
   // ==== Init Database Connection
-  //modules.mongoose.connect(application.get('database_config'));
+  modules.mongoose.connect(application.get('database_config'));
   
   Log('Load Application Config');
   // ==== Load Application Config
