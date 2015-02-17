@@ -8,4 +8,5 @@
 // }
 
 // ==== Run App
-require('./app')();
+var APP = require('.');
+APP.run();

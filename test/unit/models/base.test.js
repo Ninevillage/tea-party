@@ -1,23 +1,23 @@
 var should = require('should');
-var modules = require(process.env.MODULES);
-var database_config = require(modules.path.join(process.env.CONFIG, 'database'));
+var application = require(process.cwd()).application;
+var modules = application.get('modules');
+var database_config = application.get('database_config');
 
 if(!modules.mongoose.connection.db) modules.mongoose.connect(database_config);
-var models = require(process.env.MODELS);
 
-var Base = models.Base;
+var Base = application.get('models').Base;
 
-describe('Base Model', function() {
+describe('Model: Base', function() {
   var base = null;
-  
+
   beforeEach(function() {
     base = new Base();
   });
-  
+
   after(function(done) {
     Base.remove(done);
   });
-  
+
   var shouldSave = function(model, done, fn) {
     model.save(function(err) {
       should.not.exist(err);
@@ -27,14 +27,14 @@ describe('Base Model', function() {
       done(err);
     });
   };
-  
+
   it('should pass', function(done) {
     base.validate(function(err) {
       should.not.exist(err);
       done();
     });
   });
-  
+
   describe('Attributes', function() {
     it('should have a createdAt Date', function() {
       return should.exist(base.createdAt);
@@ -43,9 +43,9 @@ describe('Base Model', function() {
       return should.exist(base.updatedAt);
     });
   });
-  
+
   describe('Pre Save', function() {
-    it.skip('should update updatedAt Value on save', function(done) {
+    it('should update updatedAt Value on save', function(done) {
       var currentDate;
       currentDate = base.updatedAt;
       shouldSave(base, function(err) {

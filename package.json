@@ -2,7 +2,7 @@
   "name": "tea-party",
   "version": "0.0.1",
   "description": "web application",
-  "main": "app.js",
+  "main": "index.js",
   "private": true,
   "directories": {
     "test": "test"
