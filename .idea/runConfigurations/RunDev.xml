@@ -6,7 +6,9 @@
       <env name="" value="" />
     </envs>
     <RunnerSettings RunnerId="Basic" />
+    <RunnerSettings RunnerId="debuggableProgram" />
     <ConfigurationWrapper RunnerId="Basic" />
+    <ConfigurationWrapper RunnerId="debuggableProgram" />
     <method />
   </configuration>
 </component>
