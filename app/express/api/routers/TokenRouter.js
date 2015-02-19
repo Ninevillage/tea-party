@@ -7,19 +7,18 @@ module.exports = function(API, application) {
   var Router = modules.express.Router();
   
   Router.post('/token', function(req, res) {
-    if(req.body.email == null || req.body.password == null) {
-      return res.json(401, "missing credentials");
+    if (req.body.login == null || req.body.password == null) {
+      return res.status(401).json("missing credentials");
     } else {
-      models.User.loadBy(
-        'email',
-        req.body.email, 
+      models.User.loadByUsernameOrEmailWithPassword(
+          req.body.login,
         function (err, user) {
           if (err || user == null) {
-            return res.json(401, "wrong credentials");
+            return res.status(401).json("wrong credentials");
           } else {
             user.comparePassword(req.body.password, function (err, isMatch) {
-              if(err) return res.json(401, "wrong credentials");
-              if(!isMatch) return res.json(401, "wrong credentials");
+              if (err) return res.status(401).json("wrong credentials");
+              if (!isMatch) return res.status(401).json("wrong credentials");
               
               // We are sending the profile inside the token
               var duration_in_minutes = modules.moment.duration(

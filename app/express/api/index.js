@@ -26,4 +26,6 @@ module.exports = function(application) {
   
   // ==== Load API into Application
   application.use('/api', API);
+
+  return API;
 };

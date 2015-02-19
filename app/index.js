@@ -55,8 +55,7 @@ require('./config/application')(application);
 
 Log('Load Express Applications');
 // ==== Load Express Applications
-require('./express')(application);
-
+exports.express = require('./express')(application);
 
 
 exports.run = function() {

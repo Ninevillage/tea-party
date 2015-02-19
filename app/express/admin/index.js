@@ -33,4 +33,6 @@ module.exports = function(application) {
   
   // ==== Load Admin into Application
   application.use('/admin', Admin);
+
+  return Admin;
 };
