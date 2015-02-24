@@ -18,13 +18,15 @@ module.exports = function(application) {
     var router = routers[routerIndex];
     User.use(require('./routers/'+router)(User, application));
   }
-  
+
   // ==== User 404 Error Handler
   // User.use(application.get('middlewares').notFound);
-  
+
   // ==== User 500 Error Handler
   // User.use(application.get('middlewares').htmlErrorResponse);
-  
+
   // ==== Load User into Application
   application.use('/', User);
+
+  return User;
 };

@@ -23,4 +23,6 @@ module.exports = function(application) {
   
   // ==== Load Root into Application
   application.use('/', Root);
+
+  return Root;
 };

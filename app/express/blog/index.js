@@ -23,4 +23,6 @@ module.exports = function(application) {
   
   // ==== Load Blog into Application
   application.use('/blog', Blog);
+
+  return Blog;
 };

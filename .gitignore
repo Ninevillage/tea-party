@@ -3,7 +3,9 @@
 *.log
 /logs/
 
-/.c9/*
+/.c9/
+/.idea/*
+!/.idea/runConfigurations/
 
 /tmp/
 /coverage/

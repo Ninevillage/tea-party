@@ -6,12 +6,12 @@ var database_config = application.get('database_config');
 if(!modules.mongoose.connection.db) modules.mongoose.connect(database_config);
 var models = application.get('models');
 
-var User = models.User;
+var Party = models.Party;
 
-describe('Model: User', function() {
-  describe('Attributes', function() {
-    it('should pass', function() {
-      true.should.be.ok;
+describe('Model: Party', function() {
+    describe('Attributes', function() {
+        it('should pass', function() {
+            true.should.be.ok;
+        });
     });
-  });
 });

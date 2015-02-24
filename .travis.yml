@@ -5,9 +5,16 @@ before_install:
 - npm install -g codeclimate-test-reporter
 - npm install -g istanbul
 - npm install -g bower
-after_script: 
+after_script:
 - npm run test-and-coverage
 services:
 - mongodb
 env:
 - NODE_ENV=test DEBUG="tea-party,tea-party:*"
+deploy:
+  provider: heroku
+  api_key:
+    secure: Ma2F38pavAX6QJW1MRT2HJT81qYVjRhrSlm6KYLs76HWOlgz1Il2yWUGZI3jWsFu6g/bUdvWTurOGJ5g0Wf935AuNT43qjxgeYGqM0TL6p3VWT2zbF4yXxw50WVEzbjbM3CQS/6OU5SlVW3d7+LtmMoJxFFMWC0OFXbgwW+ZyvE=
+  app: tea-party-network
+  on:
+    repo: Ninevillage/tea-party

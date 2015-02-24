@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Integration:All" type="mocha-javascript-test-runner" factoryName="Mocha" singleton="false">
+    <node-options />
+    <working-directory>$PROJECT_DIR$</working-directory>
+    <pass-parent-env>true</pass-parent-env>
+    <envs>
+      <env name="NODE_ENV" value="test" />
+      <env name="DEBUG" value="tea-party,tea-party:*" />
+      <env name="" value="" />
+    </envs>
+    <ui>BDD</ui>
+    <extra-mocha-options>-R spec --recursive</extra-mocha-options>
+    <test-directory>$PROJECT_DIR$/test/integration</test-directory>
+    <recursive>true</recursive>
+    <RunnerSettings RunnerId="RunnerForMochaJavaScript" />
+    <RunnerSettings RunnerId="debuggableProgram" />
+    <ConfigurationWrapper RunnerId="RunnerForMochaJavaScript" />
+    <ConfigurationWrapper RunnerId="debuggableProgram" />
+    <method />
+  </configuration>
+</component>
