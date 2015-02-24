@@ -6,7 +6,8 @@ module.exports = function(User, application) {
   });
   
   Router.post('/login', function(req, res) {
-    
+    console.log(req.body);
+    res.send("LOL");
   });
   
   return Router;

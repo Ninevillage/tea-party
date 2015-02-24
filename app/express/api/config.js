@@ -8,8 +8,4 @@ module.exports = function(API, application) {
     path: ['/api/token', '/api/register']
   }));
   
-  // ==== Loading BodyParser
-  API.use(modules.bodyparser.json());
-  API.use(modules.bodyparser.urlencoded({ extended: true }));
-  
 };

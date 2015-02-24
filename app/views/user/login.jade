@@ -1,5 +1,7 @@
-doctype html
-html
-    head
-    body
-        h1 LOGIN
+extends ../layouts/application
+
+block content
+    form(action="", method="post")
+        input(type="email", name="email")
+        input(type="password", name="password")
+        input(type="submit", value="login")

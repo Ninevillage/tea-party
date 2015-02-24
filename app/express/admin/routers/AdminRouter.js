@@ -13,7 +13,7 @@ module.exports = function(Admin, application) {
       };
       
       if(!req.user) return renderError();
-      if(!req.user.admin) return renderError();
+      //if(!req.user.admin) return renderError();
       
       next();
   });

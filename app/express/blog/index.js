@@ -15,12 +15,6 @@ module.exports = function(application) {
     Blog.use(require('./routers/'+router)(Blog, application));
   }
   
-  // ==== Blog 404 Error Handler
-  Blog.use(application.get('middlewares').notFound);
-  
-  // ==== Blog 500 Error Handler
-  Blog.use(application.get('middlewares').htmlErrorResponse);
-  
   // ==== Load Blog into Application
   application.use('/blog', Blog);
 

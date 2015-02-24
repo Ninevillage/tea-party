@@ -24,6 +24,9 @@ application.set('ip', process.env.IP || '127.0.0.1');
 // ==== Hold the Server
 application.set('server', server);
 
+// ==== Setup Application Event Emitter
+application.set('eventemitter', new modules.events.EventEmitter());
+
 // ==== Hold Modules
 application.set('modules', modules);
 
@@ -47,7 +50,14 @@ application.set('database_config', require('./config/database'));
 
 Log('Init Database Connection');
 // ==== Init Database Connection
-modules.mongoose.connect(application.get('database_config'));
+application.set('db', modules.mongoose.connect(application.get('database_config'), function(err) {
+  if(err) return Log(err);
+  application.get('eventemitter').emit('db:connected');
+}));
+
+Log('Load Passport Config');
+// ==== Load Passport Config
+require('./config/passport')(application);
 
 Log('Load Application Config');
 // ==== Load Application Config
@@ -56,7 +66,6 @@ require('./config/application')(application);
 Log('Load Express Applications');
 // ==== Load Express Applications
 exports.express = require('./express')(application);
-
 
 exports.run = function() {
   Log('Listen on Port '+application.get('port'));
