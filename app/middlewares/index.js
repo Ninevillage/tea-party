@@ -11,5 +11,4 @@ for(var keyIndex in keys) {
     middlewares = _.merge(middlewares, middlewaresHolders[key]);
 }
 log('Loaded Middlewares');
-//log(Object.keys(middlewares));
 module.exports = middlewares;
