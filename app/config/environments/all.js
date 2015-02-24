@@ -1,6 +1,7 @@
 module.exports = {
   security: {
-    salt_factor: 10
+    salt_factor: 10,
+    secret: '56s4adf65s4f65sd4f6s4f6s54fs6da4fs'
   },
   api: {
     security: {

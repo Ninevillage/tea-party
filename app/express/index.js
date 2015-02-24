@@ -21,6 +21,13 @@ module.exports = function (application) {
   
   Log('Load Root Application'); // ROOT SHOULD BE THE LAST
   apps.root = require('./root')(application);
+  
+  
+  // ==== application 404 Error Handler
+  application.use(application.get('middlewares').notFound);
+  
+  // ==== application 500 Error Handler
+  application.use(application.get('middlewares').htmlErrorResponse);
 
   return apps;
 };

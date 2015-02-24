@@ -15,12 +15,6 @@ module.exports = function(application) {
     Root.use(require('./routers/'+router)(Root, application));
   }
   
-  // ==== Root 404 Error Handler
-  Root.use(application.get('middlewares').notFound);
-  
-  // ==== Root 500 Error Handler
-  Root.use(application.get('middlewares').htmlErrorResponse);
-  
   // ==== Load Root into Application
   application.use('/', Root);
 

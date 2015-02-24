@@ -7,7 +7,7 @@ module.exports = function(Root, application) {
   
   Router.get('/:slug(*)', function(req,res,next) {
     if(!req.page) return next();
-    res.render('page', {page: req.page});
+    res.render('show_page', {page: req.page});
   });
   
   Router.param('slug', function(req, res, next, slug) {
